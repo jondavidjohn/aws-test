@@ -11,10 +11,14 @@ terraform {
   }
 }
 
+variable "role_arn" {
+  type = string
+}
+
 provider "doormat" {}
 
 data "doormat_aws_credentials" "creds" {
-  role_arn = "arn:aws:iam::596514691779:role/jjohnson-terraform-role"
+  role_arn = var.role_arn
 }
 
 provider "aws" {
