@@ -14,7 +14,7 @@ terraform {
 provider "doormat" {}
 
 data "doormat_aws_credentials" "creds" {
-  role_arn = "arn:aws:iam::596514691779:role/aws_jjohnson_test-developer"
+  role_arn = "arn:aws:iam::596514691779:role/jjohnson-terraform-role"
 }
 
 provider "aws" {
