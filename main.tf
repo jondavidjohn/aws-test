@@ -11,7 +11,6 @@ terraform {
   }
 }
 
-
 provider "doormat" {}
 
 data "doormat_aws_credentials" "creds" {
