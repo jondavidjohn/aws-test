@@ -30,24 +30,18 @@ output "caller_identity_arn" {
   value = data.aws_caller_identity.current.arn
 }
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "amazon-2" {
   most_recent = true
 
   filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    name = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
+  owners = ["amazon"]
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.amazon-2.id
   instance_type = "t3.micro"
 
   tags = {
