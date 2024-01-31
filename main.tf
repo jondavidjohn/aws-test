@@ -17,16 +17,16 @@ variable "role_arn" {
 
 provider "doormat" {}
 
-data "doormat_aws_credentials" "creds" {
-  provider = doormat
-  role_arn = var.role_arn
-}
+# data "doormat_aws_credentials" "creds" {
+#   provider = doormat
+#   role_arn = var.role_arn
+# }
 
 provider "aws" {
   region     = "us-east-2"
-  access_key = data.doormat_aws_credentials.creds.access_key
-  secret_key = data.doormat_aws_credentials.creds.secret_key
-  token      = data.doormat_aws_credentials.creds.token
+  # access_key = data.doormat_aws_credentials.creds.access_key
+  # secret_key = data.doormat_aws_credentials.creds.secret_key
+  # token      = data.doormat_aws_credentials.creds.token
 
   default_tags {
     tags = {
