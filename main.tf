@@ -59,3 +59,12 @@ resource "aws_instance" "web" {
     Name = "HelloWorld2"
   }
 }
+
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.amazon-2.id
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "HelloWorld2"
+  }
+}
