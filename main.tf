@@ -60,7 +60,7 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance" "web2" {
   ami           = data.aws_ami.amazon-2.id
   instance_type = "t3.micro"
 
